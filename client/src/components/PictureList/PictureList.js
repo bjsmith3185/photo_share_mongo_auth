@@ -19,7 +19,7 @@ const PictureList = (props) => (
 
               {/* <img alt={image._id} className="picurelist-img text-center" style={{ transform: `rotate(${props.rotation}deg)` }} src={image.picture.image} width="200" height="200" /> */}
 
-              <img alt={image._id} className="picurelist-img text-center" style={{ transform: `rotate(${props.rotation}deg)` }} src={image.picture} width="200" height="200" />
+              <img alt={image._id} className="picurelist-img text-center" style={{ transform: `rotate(${props.rotation}deg)` }} src={image.picture.image} width="200" height="200" />
 
         <div className="picturelist-toolbar">
           <div className="picturelist-rotate text-center" onClick={() => props.rotate(image.picture._id)}>&#8631;</div>
