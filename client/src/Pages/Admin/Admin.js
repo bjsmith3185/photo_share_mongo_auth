@@ -111,64 +111,34 @@ class Admin extends Component {
 
   };
 
-  // checkForAdmin = () => {
-  //   let _id = sessionStorage.getItem("_id");
-
-  //   // api call to users collection, if email matches then allow access
-  //   API.getUser(_id)
-  //     .then(res => {
-  //       console.log("users info")
-  //       console.log(res.data)
-
-  //       if (res.data === null) {
-  //         this.setState({
-  //           loggedIn: false
-  //         })
-  //       } else {
-  //         this.setState({
-  //           loggedIn: res.data.loggedIn,
-  //           name: res.data.name,
-  //           email: res.data.email,
-  //           _id: res.data._id,
-  //           admin: res.data.admin,
-  //         })
-  //       }
-  //     })
-  //     .catch(error => {
-  //       console.log(error)
-  //     });
-  // };
-
+ 
   addUser = (event) => {
     event.preventDefault();
-    // console.log(this.state.username)
-
+ 
     let newUser = {
       name: this.state.username,
       email: this.state.useremail,
       password: this.state.passwordOne,
-      admin: false,
-    }
+     }
 
     API.addUser(newUser)
       .then((res) => {
         console.log("added new user to database")
         console.log(res.data)
+        this.getAllUsers();
       })
       .catch(error => {
         console.log(error)
       });
   };
 
-  // pageRedirect = () => {
-  //   this.props.history.push(ROUTES.HOME);
-  // };
+  
 
   getAllUsers = () => {
     API.getAllUsers()
       .then(res => {
-        console.log("all users info")
-        console.log(res.data)
+        // console.log("all users info")
+        // console.log(res.data)
 
         if (res.data === null) {
           console.log("no users")
@@ -186,12 +156,12 @@ class Admin extends Component {
   };
 
   updateUser = (id) => {
-    console.log("update")
-    console.log(id)
+    // console.log("update")
+    // console.log(id)
     API.getUser(id)
       .then((res) => {
-        console.log("user info")
-        console.log(res.data)
+        // console.log("user info")
+        // console.log(res.data)
         this.setState({
           oldUsername: res.data.name,
           oldUseremail: res.data.email,
@@ -212,7 +182,7 @@ class Admin extends Component {
   submitUpdatedUser = (event) => {
     event.preventDefault();
     // console.log(id)
-    console.log(this.state.idToUpdate);
+    // console.log(this.state.idToUpdate);
 
     let data = {
       name: this.state.username,
@@ -220,12 +190,12 @@ class Admin extends Component {
       admin: this.state.userAdmin,
     }
 
-    console.log(data)
+    // console.log(data)
 
     API.updateUser(this.state.oldUsername, data)
       .then((res) => {
-        console.log("updated user info")
-        console.log(res.data)
+        // console.log("updated user info")
+        // console.log(res.data)
         this.setState({
           viewUpdateUser: false,
         })
@@ -240,13 +210,13 @@ class Admin extends Component {
   };
 
   deleteUser = (id) => {
-    console.log("delete")
-    console.log(id)
+    // console.log("delete")
+    // console.log(id)
 
     API.deleteUser(id)
       .then((res) => {
-        console.log("deleted user")
-        console.log(res.data)
+        // console.log("deleted user")
+        // console.log(res.data)
         this.getAllUsers();
       })
       .catch(error => {

@@ -54,7 +54,7 @@ class Pictures extends Component {
   };
 
   signOut = () => {
-    console.log("signing out")
+    // console.log("signing out")
     let _id = sessionStorage.getItem("_id");
   
     API.signOutUser(_id)
@@ -73,8 +73,8 @@ class Pictures extends Component {
 
     API.getUser(_id)
       .then(res => {
-        console.log("users info")
-        console.log(res.data)
+        // console.log("users info")
+        // console.log(res.data)
 
         if (res.data === null) {
           this.setState({
@@ -124,7 +124,7 @@ class Pictures extends Component {
 
     API.emptySpecificDisplayPictures(userId)
       .then(res => {
-        console.log(`user display pictures emptied`)
+        // console.log(`user display pictures emptied`)
 
         API.getAllPictures()
           .then(res => {
@@ -160,8 +160,8 @@ class Pictures extends Component {
                           // console.log(res.data)
                           API.getSpecificUserDisplayPictures(userId)
                             .then(res => {
-                              console.log("getting pictures to display")
-                              console.log(res.data); // this is populated correctly
+                              // console.log("getting pictures to display")
+                              // console.log(res.data); // this is populated correctly
 
                               this.setState({
                                 displayPictures: res.data,
@@ -200,8 +200,8 @@ class Pictures extends Component {
                         .then(res => {
                           API.getSpecificUserDisplayPictures(userId)
                             .then(res => {
-                              console.log("getting pictures to display")
-                              console.log(res.data); // this is populated correctly
+                              // console.log("getting pictures to display")
+                              // console.log(res.data); // this is populated correctly
 
                               this.setState({
                                 displayPictures: res.data,
@@ -230,14 +230,14 @@ class Pictures extends Component {
 
     API.emptySpecificDisplayPictures(userId)
       .then(res => {
-        console.log(`user display pictures emptied`)
-        console.log(res.data)
+        // console.log(`user display pictures emptied`)
+        // console.log(res.data)
 
         API.getUserFavorites(name)
           .then(res => {
             fav = res.data.favorites;
-            console.log("all favs")
-            console.log(fav)
+            // console.log("all favs")
+            // console.log(fav)
 
             if (fav.length === 0) {
               console.log("no favs to show");
@@ -262,8 +262,8 @@ class Pictures extends Component {
                   .then(res => {
                     API.getSpecificUserDisplayPictures(userId)
                       .then(res => {
-                        console.log("getting pictures to display")
-                        console.log(res.data); // this is populated correctly
+                        // console.log("getting pictures to display")
+                        // console.log(res.data); // this is populated correctly
                         // this is correct above
 
                         this.setState({
@@ -286,7 +286,7 @@ class Pictures extends Component {
 
 
   viewAllPictures = () => {
-    console.log("clicked view all pics")
+    // console.log("clicked view all pics")
     this.createDisplayPicturesAll();
 
     if (this.state.showAllPictures === false) {
@@ -305,7 +305,7 @@ class Pictures extends Component {
   };
 
   viewMyFavorites = () => {
-    console.log("clicked my favs")
+    // console.log("clicked my favs")
     this.createdisplayPicturesFav();
 
     if (this.state.showAllFavorites === false) {
@@ -362,13 +362,13 @@ class Pictures extends Component {
 
 
   next = () => {
-    console.log("hello")
-    console.log(this.state.displayPictures.length)
+    // console.log("hello")
+    // console.log(this.state.displayPictures.length)
     let newIndex = this.state.photoIndex + 1;
     if (newIndex > (this.state.displayPictures.length - 1)) {
       newIndex = 0;
     }
-    console.log(newIndex)
+    // console.log(newIndex)
     this.setState({
       photoIndex: newIndex
     })
@@ -376,14 +376,14 @@ class Pictures extends Component {
   };
 
   back = () => {
-    console.log("hello")
-    console.log(this.state.displayPictures.length)
+    // console.log("hello")
+    // console.log(this.state.displayPictures.length)
     let newIndex = this.state.photoIndex - 1;
     if (newIndex === -1) {
       newIndex = (this.state.displayPictures.length - 1)
     }
 
-    console.log(newIndex)
+    // console.log(newIndex)
     this.setState({
       photoIndex: newIndex
     })
@@ -405,10 +405,10 @@ class Pictures extends Component {
   addToFavorites = (id, showRed, picture_id) => {
     // id=displaypicture._id, picture_id = picture_id
     let userId = sessionStorage.getItem("_id");
-    console.log("adding to fav")
-    console.log(id);
-    console.log(showRed)
-    console.log(picture_id)
+    // console.log("adding to fav")
+    // console.log(id);
+    // console.log(showRed)
+    // console.log(picture_id)
     let updateHeart = {}
 
     if (showRed) {
@@ -423,13 +423,13 @@ class Pictures extends Component {
 
     API.updateDisplayPicture(id, updateHeart)
       .then(res => {
-        console.log("is this updated")
-        console.log(res.data)
-        // API.getAllDisplayPictures()
+        // console.log("is this updated")
+        // console.log(res.data)
+     
         API.getSpecificUserDisplayPictures(userId)
           .then(res => {
-            console.log("getting pictures to display")
-            console.log(res.data)
+            // console.log("getting pictures to display")
+            // console.log(res.data)
             this.setState({
               displayPictures: res.data,
             })
@@ -453,7 +453,7 @@ class Pictures extends Component {
   }
 
   onSelect = (event) => {
-    console.log(event.target.files);
+    // console.log(event.target.files);
 
     this.setState({
       files: event.target.files
@@ -492,10 +492,10 @@ class Pictures extends Component {
 
     API.updateDisplayPicture(id, newStatus)
       .then(res => {
-        console.log("return from openTextBox")
+        // console.log("return from openTextBox")
         API.getSpecificUserDisplayPictures(userId)
           .then(res => {
-            console.log("getting pictures to display")
+            // console.log("getting pictures to display")
             this.setState({
               displayPictures: res.data,
             })
@@ -525,7 +525,7 @@ class Pictures extends Component {
 
             API.getSpecificUserDisplayPictures(userId)
               .then(res => {
-                console.log("getting pictures to display")
+                // console.log("getting pictures to display")
                 this.setState({
                   displayPictures: res.data,
                   note: "",

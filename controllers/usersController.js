@@ -9,7 +9,7 @@ module.exports = {
     // console.log(email)
 
     return db.Users
-    .findOneAndUpdate({ email: email, password: password}, data, { new: true })
+      .findOneAndUpdate({ email: email, password: password }, data, { new: true })
   },
 
   signout: function (id, data) {
@@ -19,7 +19,7 @@ module.exports = {
     // console.log(email)
 
     return db.Users
-    .findOneAndUpdate({ _id: id}, data, { new: true })
+      .findOneAndUpdate({ _id: id }, data, { new: true })
   },
 
   findAll: function () {
@@ -32,19 +32,20 @@ module.exports = {
   },
 
   findByName: function (name) {
-    console.log("########### usercontroller")
-    console.log(name)
+    // console.log("########### usercontroller")
+    // console.log(name)
     return db.Users
-      .findOne({name: name })
+      .findOne({ name: name })
   },
-  
+
   create: function (data) {
     console.log("!!!")
     console.log(data)
-    return db.Users.create(data)
+    return db.Users
+      .create(data)
   },
 
-  
+
   update: function (name, data) {
     return db.Users
       .findOneAndUpdate({ name: name }, data, { upsert: true })
@@ -73,18 +74,18 @@ module.exports = {
   },
 
   findByNameAndPopulate: function (name) {
-    console.log("@@@@ " + name)
+    // console.log("@@@@ " + name)
     return db.Users
       .findOne({ name: name })
-      // .populate({
-      //   path: 'favorites',
-      //   populate: {
-      //     path: 'notes',
-      //     populate: {
-      //       path: 'author'
-      //     }
-      //   }
-      // })
+    // .populate({
+    //   path: 'favorites',
+    //   populate: {
+    //     path: 'notes',
+    //     populate: {
+    //       path: 'author'
+    //     }
+    //   }
+    // })
 
 
   },
