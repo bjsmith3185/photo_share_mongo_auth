@@ -128,6 +128,8 @@ class Pictures extends Component {
 
         API.getAllPictures()
           .then(res => {
+            // console.log("$$$$$$$$$$$$$ all pictures")
+            // console.log(res.data)
             if (res.data.length === 0) {
               return;
             }
@@ -135,7 +137,7 @@ class Pictures extends Component {
             for (var i = 0; i < res.data.length; i++) {
               all.push(res.data[i]._id);
             }
-            console.log(all);
+            // console.log(all);
             //------------------------------
             API.getUserFavorites(name)
               .then(res => {

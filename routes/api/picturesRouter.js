@@ -42,7 +42,8 @@ router.route("/")
       .then(dbresults => {
         //add image value to model with _id
         let data = {
-          image: "http://localhost:3001/api/pictures/" + dbresults._id
+          // image: "http://localhost:3001/api/pictures/" + dbresults._id
+          image: dbresults._id
         }
 
         pictures.update(dbresults._id, data)
