@@ -41,14 +41,11 @@ router.route("/")
     pictures.create(picObj)
       .then(dbresults => {
         //add image value to model with _id
-        let stringData = dbresults.encodedImage.data.toString();
-        console.log("string Data")
-        console.log(stringData)
-
+        
         let data = {
           // image: "http://localhost:3001/api/pictures/" + dbresults._id
-           image: stringData,
- 
+           image: dbresults.encodedImage.data.toString()
+          // image: dbresults._id
         }
 
         pictures.update(dbresults._id, data)

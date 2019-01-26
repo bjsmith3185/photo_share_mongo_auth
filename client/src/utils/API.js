@@ -8,7 +8,7 @@ export default {
     return axios.post("/populate/users");
   },
 
-  populatePicures: function () {
+  removePicures: function () {
     return axios.post("/populate/pictures");
   },
 

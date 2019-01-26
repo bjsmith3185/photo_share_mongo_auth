@@ -17,10 +17,10 @@ export default class PopulateUsersPage extends React.Component {
       .catch(err => console.log(err));
   };
 
-  populatePictures = () => {
-    API.populatePicures()
+  removePictures = () => {
+    API.removePicures()
     .then(res => {
-      console.log("populate pictures")
+      console.log("removed all saved pictures")
       console.log(res.data)
     })
     .catch(err => console.log(err));
@@ -49,7 +49,7 @@ export default class PopulateUsersPage extends React.Component {
         <br />
         <br />
         <br />
-        <button onClick={this.populatePictures}>Populate Pictures</button>
+        <button onClick={this.removePictures}>Clear pictures</button>
         <br />
         <br />
         <br />
