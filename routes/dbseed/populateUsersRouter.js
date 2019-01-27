@@ -12,6 +12,15 @@ const adminSeedArray = [
         password: "123456",
     },
 
+    {
+        name: "Ann Smith",
+        admin: true,
+        email: "ann@mail.com",
+        password: "123456",
+    },
+
+    
+
 ]
 
 
