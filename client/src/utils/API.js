@@ -106,6 +106,11 @@ export default {
     return axios.put("/api/pictures/" + id, data)
   },
 
+  removeAllPictures: function () {
+    return axios.delete('/api/pictures')
+  },
+
+
 
   // route /api/comments
 
@@ -116,6 +121,8 @@ export default {
     return axios.post('/api/comments', data);
   },
 
+
+  
 
 
   // route /api/display

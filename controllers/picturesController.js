@@ -26,9 +26,9 @@ module.exports = {
       .findOneAndUpdate({ _id: id }, data , { new : true })
   },
 
-  remove: function () {
+  remove: function (id) {
     return db.Pictures
-    .remove({})
+    .remove({_id : id})
   },
 
   removeAll: function () {

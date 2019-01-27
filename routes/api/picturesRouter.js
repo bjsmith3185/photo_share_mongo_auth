@@ -104,20 +104,22 @@ router.route("/:id")
       .catch(err => res.status(422).json(err))
   });
 
-router.route("/:picture")
+router.route("/:id")
   .delete((req, res) => {
-    pictures.remove(req.params.picture)
+    pictures.remove(req.params.id)
       .then(dbresults => res.json(dbresults))
       .catch(err => res.status(422).json(err))
   });
 
-//   router.route("/keywords")
-//   .get((req, res) => {
-//     pictures.findAll()
-//       .then(dbresults => {
-//         res.json(dbresults)})
-//       .catch(err => res.status(422).json(err))
-//   });
+  router.route("/")
+  .delete((req, res) => {
+    pictures.removeAll()
+      .then(dbresults => res.json(dbresults))
+      .catch(err => res.status(422).json(err))
+  });
+
+
+
 
 
 module.exports = router;

@@ -7,7 +7,7 @@ import Navigation from '../../components/Navigation';
 import UserIdBar from '../../components/UserIdBar';
 import AdminNavbar from "../../components/AdminNavbar";
 import AllUsers from "../../components/AllUsers";
-// import SignUpForm from '../../components/SignUp';
+import RemovePicture from '../../components/RemovePicture';
 import * as ROUTES from '../../constants/routes';
 // import PictureNavbar from '../../components/PictureNavbar';
 
@@ -198,6 +198,9 @@ class Admin extends Component {
         // console.log(res.data)
         this.setState({
           viewUpdateUser: false,
+          username: "",
+          useremail: "",
+
         })
         this.getAllUsers();
 
@@ -225,7 +228,19 @@ class Admin extends Component {
   };
 
 
+removeAllPictures = () => {
 
+  API.removeAllPictures()
+  .then((res) => {
+    console.log("removed all pictures")
+    // console.log(res.data)
+    this.viewAllUsers();
+  })
+  .catch(error => {
+    this.setState({ error });
+  });
+
+};
 
 
   viewAddNewUser = () => {
@@ -233,6 +248,8 @@ class Admin extends Component {
       showAddNewUser: true,
       showAllUsers: false,
       showRemovePicture: false,
+      username: "",
+      useremail: "",
     })
   };
 
@@ -241,6 +258,8 @@ class Admin extends Component {
       showAddNewUser: false,
       showAllUsers: true,
       showRemovePicture: false,
+      username: "",
+      useremail: "",
     })
 
     this.getAllUsers()
@@ -336,7 +355,9 @@ class Admin extends Component {
               )}
 
             {this.state.showRemovePicture ? (
-              <div> remove picture </div>
+             <RemovePicture
+              removeAllPictures={this.removeAllPictures}
+             />
             ) : (
                 <div></div>
               )}
