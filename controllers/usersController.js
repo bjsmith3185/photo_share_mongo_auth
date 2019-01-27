@@ -22,6 +22,14 @@ module.exports = {
       .findOneAndUpdate({ _id: id }, data, { new: true })
   },
 
+  // createMany: function (data) {
+  //   console.log("!!!!! inserting many users")
+  //   console.log(data)
+  //   return db.Users
+  //   .insertMany(data, {new: true})
+  // },
+
+
   findAll: function () {
     return db.Users
       .find({})

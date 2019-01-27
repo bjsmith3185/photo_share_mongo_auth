@@ -42,7 +42,7 @@ class HomePage extends Component {
   };
 
   signOut = () => {
-    console.log("signing out")
+    // console.log("signing out")
     let _id = sessionStorage.getItem("_id");
 
     API.signOutUser(_id)
@@ -62,8 +62,8 @@ class HomePage extends Component {
 
     API.getUser(_id)
       .then(res => {
-        console.log("users info")
-        console.log(res.data)
+        // console.log("users info")
+        // console.log(res.data)
 
         if (res.data === null) {
           this.setState({

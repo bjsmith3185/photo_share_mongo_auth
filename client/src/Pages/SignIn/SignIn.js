@@ -40,8 +40,8 @@ class SignIn extends Component {
 
     API.login(this.state.email, data)
       .then(res => {
-        console.log("return from logins")
-        console.log(res.data)
+        // console.log("return from logins")
+        // console.log(res.data)
 
 
         this.setState({
@@ -54,7 +54,7 @@ class SignIn extends Component {
             unscessful: true
           })
         } else {
-          console.log(res.data._id)
+          // console.log(res.data._id)
           sessionStorage.setItem("_id", res.data._id);
           this.setState({
             unscessful: false

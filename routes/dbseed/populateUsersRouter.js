@@ -12,16 +12,15 @@ const adminSeedArray = [
         password: "123456",
     },
 
-    {
-        name: "Ann Smith",
-        admin: true,
-        email: "ann@mail.com",
-        password: "123456",
-    },
-
-    
-
+    // {
+    //     name: "Ann Smith",
+    //     admin: true,
+    //     email: "ann@mail.com",
+    //     password: "123456",
+    // },
 ]
+
+
 
 
 router.route("/")
@@ -34,7 +33,7 @@ router.route("/")
                         .then(dbresults => {
                             console.log("deleted and populated users collection")
                             console.log(dbresults);
-                            
+
                         })
                         .catch(err => res.status(422).json(err))
                 }
