@@ -9,7 +9,7 @@ const adminSeedArray = [
         name: "brian smith",
         admin: true,
         email: "brian@mail.com",
-        password: "123456",
+        // password: "123456",
     },
 
     // {

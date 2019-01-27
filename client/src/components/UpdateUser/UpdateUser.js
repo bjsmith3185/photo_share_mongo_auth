@@ -4,8 +4,6 @@ import "./UpdateUser.css";
 
 const UpdateUser = (props) => (
 
-
-
   <div className="updateuser-area">
     <div>Update User Info Below.</div>
 
@@ -34,40 +32,46 @@ const UpdateUser = (props) => (
         />
 
       </div>
+      <br />
 
-      <div>
-        <label >Previous: {props.oldAdmin}</label>
+
+      <span className="updateuser-password">Reset Password: </span><input type="checkbox" name="resetPassword" value={true} onClick={props.onChange} />
         <br />
-        <select
-          id="useradmin"
-          value={props.userAdmin}
-          name="userAdmin"
-          onChange={props.onChange}
-        >
-         {/* <option >Select</option> */}
-          <option value={false}>False</option>
-          <option value={true}>True</option>
-        </select>
 
-      </div>
+      
+        <br />
 
-      {/* <input
-        id="useradmin"
-          name="userAdmin"
-          value={props.userAdmin}
-          onChange={props.onChange}
-          type=
-          placeholder="Password"
-        /> */}
 
-      <button onClick={props.submitUpdatedUser}>
-        Update
+        <div>
+          <label >Admin Status: {props.oldAdmin}</label>
+          <br />
+          <select
+            id="useradmin"
+            value={props.userAdmin}
+            name="userAdmin"
+            onChange={props.onChange}
+          >
+            {/* <option >Select</option> */}
+            <option value={false}>False</option>
+            <option value={true}>True</option>
+          </select>
+
+        </div>
+
+    
+        <br />
+        <br />
+        <br />
+        <br />
+
+        <button onClick={props.submitUpdatedUser}>
+          Update
         </button>
 
 
     </form>
   </div>
-);
-
-export default UpdateUser;
-
+    );
+    
+    export default UpdateUser;
+    

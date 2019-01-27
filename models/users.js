@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const UsersSchema = new Schema({
   name: { type: String},
   email: {type: String},
-  password: {type: String},
+  password: {type: String, default: "123456"},
   loggedIn: {type: Boolean, default: false},
   admin: {type: Boolean, default: false},
  

@@ -24,7 +24,7 @@ const AddNewUser = (props) => (
           type="text"
           placeholder="Email Address"
         />
-        <input
+        {/* <input
           name="passwordOne"
           value={props.passwordOne}
           onChange={props.onChange}
@@ -37,7 +37,7 @@ const AddNewUser = (props) => (
           onChange={props.onChange}
           type="text"
           placeholder="Confirm Password"
-        />
+        /> */}
         <button onClick={props.addUser}>
           Sign Up
         </button>

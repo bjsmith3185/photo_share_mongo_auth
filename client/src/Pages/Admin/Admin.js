@@ -24,6 +24,8 @@ class Admin extends Component {
     passwordTwo: "",
     error: "",
     userAdmin: "",
+    resetPassword: false,
+
 
     loggedIn: false,
     authUser: false,
@@ -111,15 +113,15 @@ class Admin extends Component {
 
   };
 
- 
+
   addUser = (event) => {
     event.preventDefault();
- 
+
     let newUser = {
       name: this.state.username,
       email: this.state.useremail,
       password: this.state.passwordOne,
-     }
+    }
 
     API.addUser(newUser)
       .then((res) => {
@@ -132,7 +134,7 @@ class Admin extends Component {
       });
   };
 
-  
+
 
   getAllUsers = () => {
     API.getAllUsers()
@@ -183,12 +185,24 @@ class Admin extends Component {
     event.preventDefault();
     // console.log(id)
     // console.log(this.state.idToUpdate);
+    let data = {};
+    if (this.state.resetPassword) {
+      data = {
+        name: this.state.username,
+        email: this.state.useremail,
+        admin: this.state.userAdmin,
+        password: "123456",
+      }
 
-    let data = {
-      name: this.state.username,
-      email: this.state.useremail,
-      admin: this.state.userAdmin,
+    } else {
+      data = {
+        name: this.state.username,
+        email: this.state.useremail,
+        admin: this.state.userAdmin,
+      }
     }
+
+
 
     // console.log(data)
 
@@ -200,6 +214,7 @@ class Admin extends Component {
           viewUpdateUser: false,
           username: "",
           useremail: "",
+          userPassword: false,
 
         })
         this.getAllUsers();
@@ -228,19 +243,21 @@ class Admin extends Component {
   };
 
 
-removeAllPictures = () => {
 
-  API.removeAllPictures()
-  .then((res) => {
-    console.log("removed all pictures")
-    // console.log(res.data)
-    this.viewAllUsers();
-  })
-  .catch(error => {
-    this.setState({ error });
-  });
 
-};
+  removeAllPictures = () => {
+
+    API.removeAllPictures()
+      .then((res) => {
+        console.log("removed all pictures")
+        // console.log(res.data)
+        this.viewAllUsers();
+      })
+      .catch(error => {
+        this.setState({ error });
+      });
+
+  };
 
 
   viewAddNewUser = () => {
@@ -303,8 +320,8 @@ removeAllPictures = () => {
           admin={this.state.admin}
           signOut={this.signOut}
         />
-         <UserIdBar name={this.state.name} />
-          
+        <UserIdBar name={this.state.name} />
+
 
         {this.state.admin && this.state.loggedIn ? (
           <div>
@@ -314,7 +331,7 @@ removeAllPictures = () => {
               viewAllUsers={this.viewAllUsers}
               viewRemovePicture={this.viewRemovePicture}
             />
-           
+
 
             {this.state.showAddNewUser ? (
               <AddNewUser
@@ -345,6 +362,7 @@ removeAllPictures = () => {
                 onChange={this.onChange}
                 oldUseremail={this.state.oldUseremail}
                 useremail={this.state.useremail}
+                userPassword={this.state.userPassword}
                 oldAdmin={this.state.oldAdmin}
                 userAdmin={this.state.userAdmin}
                 submitUpdatedUser={this.submitUpdatedUser}
@@ -355,9 +373,9 @@ removeAllPictures = () => {
               )}
 
             {this.state.showRemovePicture ? (
-             <RemovePicture
-              removeAllPictures={this.removeAllPictures}
-             />
+              <RemovePicture
+                removeAllPictures={this.removeAllPictures}
+              />
             ) : (
                 <div></div>
               )}
