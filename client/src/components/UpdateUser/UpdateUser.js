@@ -16,7 +16,6 @@ const UpdateUser = (props) => (
           value={props.username}
           onChange={props.onChange}
           type="text"
-        // placeholder="Full Name"
         />
 
       </div>
@@ -28,7 +27,6 @@ const UpdateUser = (props) => (
           value={props.useremail}
           onChange={props.onChange}
           type="text"
-        // placeholder="Email Address"
         />
 
       </div>
@@ -51,8 +49,7 @@ const UpdateUser = (props) => (
             name="userAdmin"
             onChange={props.onChange}
           >
-            {/* <option >Select</option> */}
-            <option value={false}>False</option>
+             <option value={false}>False</option>
             <option value={true}>True</option>
           </select>
 

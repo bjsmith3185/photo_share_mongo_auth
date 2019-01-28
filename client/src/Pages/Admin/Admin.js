@@ -120,7 +120,7 @@ class Admin extends Component {
     let newUser = {
       name: this.state.username,
       email: this.state.useremail,
-      password: this.state.passwordOne,
+      // password: this.state.passwordOne,
     }
 
     API.addUser(newUser)
@@ -201,8 +201,6 @@ class Admin extends Component {
         admin: this.state.userAdmin,
       }
     }
-
-
 
     // console.log(data)
 

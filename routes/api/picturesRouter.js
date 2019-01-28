@@ -43,6 +43,8 @@ router.route("/")
         //add image value to model with _id
         
         let data = {
+
+          // image: "http://localhost:3001/api/pictures/" + dbresults._id
           image: "https://powerful-eyrie-82524.herokuapp.com/api/pictures/" + dbresults._id
           //  image: dbresults.encodedImage.data.toString()
           // image: dbresults._id
