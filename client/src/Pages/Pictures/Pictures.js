@@ -131,6 +131,7 @@ class Pictures extends Component {
             // console.log("$$$$$$$$$$$$$ all pictures")
             // console.log(res.data)
             if (res.data.length === 0) {
+              console.log("no pictures to display")
               return;
             }
 

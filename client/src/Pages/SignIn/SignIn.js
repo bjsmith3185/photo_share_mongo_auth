@@ -88,6 +88,10 @@ class SignIn extends Component {
 
             <div>Enter you information Below</div>
           )}
+          <br/>
+          <div>To test this app use:</div>
+          <div>email: brian@mail.com</div>
+          <div>password: 123456</div>
         <form>
           <input className="form-input"
             value={this.state.email}

@@ -81,11 +81,11 @@ router.route("/signout/:id")
 router.route("/favorites/:name")
 
   .get((req, res) => {
-    console.log("@@@@@@@@@@@@@@@@@@")
+    // console.log("@@@@@@@@@@@@@@@@@@")
     users.findByNameAndPopulate(req.params.name)
       .then(dbresults => {
-        console.log("this is the populated result");
-        console.log(dbresults)
+        // console.log("this is the populated result");
+        // console.log(dbresults)
         // console.log(typeof(dbresults.favorites[0]))
         res.json(dbresults)
       })
