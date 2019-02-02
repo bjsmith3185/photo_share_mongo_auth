@@ -120,7 +120,10 @@ class Admin extends Component {
     let newUser = {
       name: this.state.username,
       email: this.state.useremail,
-      // password: this.state.passwordOne,
+      password: "123456",
+      favorites: [],
+      loggedIn: false,
+      admin: false,
     }
 
     API.addUser(newUser)
